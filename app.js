@@ -4,6 +4,8 @@ let btns =['yellow','red','purple','green'];
 let started = false;
 let level = 0;
 const h2 = document.querySelector('h2');
+let highsc = 0;
+const h3 = document.querySelector('h3');
 
 
 document.addEventListener("keydown",function(){
@@ -53,9 +55,15 @@ function check(idx){
         setTimeout(function(){
             document.querySelector('body').style.backgroundColor = 'white';
         },300)
+        if(highsc<level){
+            highsc = level;
+        }
         h2.innerHTML = `Game over your score: <b>${level}</b> <br>press any key to start.`;
+        h3.innerText = `High score: ${highsc}`;
+    
         reset();
     }
+
 }
 
 function btnpres(){
